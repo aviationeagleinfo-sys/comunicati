@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Eagle Press - Pagina Non Trovata (404)</title>
+    <link class="rounded-full" rel="icon" type="image/png" href="https://avvisi.aviationeagle.co.uk/Aviation-Eagle-Avvisi-Icon-RBG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 50%, #f9fafb 0%, #f3f4f6 100%);
+            color: #1f2937;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <nav class="glass-panel sticky top-0 z-50 px-6 py-3 flex justify-between items-center border-b border-gray-200">
+        <div class="flex items-center space-x-3">
+            <img src="https://avvisi.aviationeagle.co.uk/Aviation-Eagle-Ex-RGB.png" alt="Aviation Eagle Logo" class="h-8 w-auto object-contain">
+            <span class="text-xs bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full border border-blue-200 font-semibold uppercase tracking-wider">Press & Media</span>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-6">
+            <a href="https://avvisi.aviationeagle.co.uk" target="_blank" class="text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors flex items-center space-x-1.5 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-200">
+                <i class="fa-solid fa-triangle-exclamation text-xs" aria-hidden="true"></i>
+                <span>Avvisi Operativi</span>
+            </a>
+            <a href="https://aviationeagle.co.uk" target="_blank" class="hidden sm:flex text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors items-center space-x-1">
+                <i class="fa-solid fa-house text-xs" aria-hidden="true"></i>
+                <span>Portale Principale</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex items-center justify-center p-6">
+        <div class="max-w-xl w-full glass-panel p-8 md:p-12 rounded-[32px] text-center space-y-6 border-t-4 border-t-blue-600 shadow-xl">
+            
+            <div class="relative w-24 h-24 mx-auto flex items-center justify-center bg-blue-50 text-blue-600 rounded-full border border-blue-100 shadow-inner">
+                <i class="fa-solid fa-newspaper text-4xl animate-pulse" aria-hidden="true"></i>
+            </div>
+
+            <div class="space-y-2">
+                <h1 class="text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 block">404</h1>
+                <h2 class="text-2xl font-bold tracking-tight text-gray-900">Comunicato Non Trovato</h2>
+                <p class="text-gray-500 text-sm max-w-sm mx-auto">
+                    Il comunicato stampa o la risorsa media richiesta non è presente nell'archivio di rete. Il collegamento potrebbe essere errato o rimosso.
+                </p>
+            </div>
+
+            <div class="p-4 bg-gray-50/80 rounded-xl border border-gray-200/60 text-left font-mono text-xs text-gray-600 space-y-1">
+                <p><span class="text-blue-600 font-bold">STATUS:</span> ERR_PRESS_DOC_NOT_FOUND</p>
+                <p><span class="text-blue-600 font-bold">SUBSYSTEM:</span> Aviation Eagle Press & Media Network</p>
+                <p><span class="text-blue-600 font-bold">COORDINATES:</span> <span id="current-url"></span></p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-2">
+                <button onclick="window.history.back()" class="w-full sm:w-auto text-sm bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 px-5 py-2.5 rounded-lg font-medium transition-all shadow-sm active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Torna Indietro
+                </button>
+                <a href="/" class="w-full sm:w-auto text-sm bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all shadow-sm active:scale-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-newspaper" aria-hidden="true"></i> Sala Stampa Ufficiale
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel mt-auto py-4 text-center text-xs text-gray-500 border-t border-gray-200">
+        &copy; 2026 Aviation Eagle Network. Tutti i diritti riservati. Ufficio Stampa & Media.
+    </footer>
+
+    <script>
+        document.getElementById('current-url').textContent = window.location.pathname || '/';
+    </script>
+</body>
+</html>
