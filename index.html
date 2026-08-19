@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Eagle Press Portal</title>
+    <link class="rounded-full" rel="icon" type="image/png" href="https://avvisi.aviationeagle.co.uk/Aviation-Eagle-Avvisi-Icon-RBG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Meta tag SEO -->
+    <meta name="application-name" content="Comunicati Stampa by Aviation Eagle">
+    <meta property="og:site_name" content="Comunicati Stampa by Aviation Eagle">
+    <meta property="og:title" content="Portale Comunicati Stampa - Aviation Eagle">
+    <meta property="og:description" content="Archivio ed elenco ufficiale dei comunicati stampa rilasciati da Aviation Eagle.">
+    <meta name="description" content="Archivio e ricerca ufficiale dei comunicati stampa di Aviation Eagle.">
+
+    <!-- Schema.org per dati strutturati -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Comunicati Stampa by Aviation Eagle",
+      "alternateName": "Aviation Eagle Press Portal",
+      "url": "https://comunicati-stampa.aviationeagle.co.uk/"
+    }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at 50% 50%, #f9fafb 0%, #f3f4f6 100%);
+            color: #1f2937;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #111827;
+        }
+        .glass-input:focus {
+            border-color: #2563eb;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="glass-panel sticky top-0 z-50 px-6 py-3 flex justify-between items-center border-b border-gray-200">
+        <div class="flex items-center space-x-3">
+            <img src="https://avvisi.aviationeagle.co.uk/Aviation-Eagle-Ex-RGB.png" alt="Aviation Eagle Logo" class="h-8 w-auto object-contain">
+            <span class="text-xs bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full border border-blue-200 font-semibold uppercase tracking-wider">Press & Media</span>
+        </div>
+        <div class="flex items-center space-x-4 md:space-x-6">
+            <a href="#presskit" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors flex items-center space-x-1.5">
+                <i class="fa-solid fa-box-archive text-xs text-blue-600"></i>
+                <span>Press Kit</span>
+            </a>
+            <a href="https://avvisi.aviationeagle.co.uk" target="_blank" class="text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors flex items-center space-x-1.5 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-200">
+                <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+                <span>Avvisi Operativi</span>
+            </a>
+            <a href="https://aviationeagle.co.uk" target="_blank" class="hidden sm:flex text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors items-center space-x-1">
+                <i class="fa-solid fa-house text-xs"></i>
+                <span>Portale Principale</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 space-y-8">
+
+        <!-- Hero Header -->
+        <div class="text-center space-y-2 py-4">
+            <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">Sala Stampa Ufficiale</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+                Comunicati ufficiali, note informative di rete, aggiornamenti sulle operazioni e risorse media di Aviation Eagle.
+            </p>
+        </div>
+
+        <!-- Search Bar & Filter Section -->
+        <div class="glass-panel p-4 sm:p-6 rounded-2xl space-y-4">
+            <div class="flex flex-col md:flex-row gap-3">
+                <div class="relative flex-1">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-gray-400">
+                        <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                    </span>
+                    <input type="text" id="search-input" onkeyup="filterPressReleases()" class="w-full p-3 pl-10 rounded-xl glass-input text-sm" placeholder="Cerca comunicato per titolo, parola chiave o argomento...">
+                </div>
+                <div class="w-full md:w-56">
+                    <select id="category-filter" onchange="filterPressReleases()" class="w-full p-3 rounded-xl glass-input text-sm bg-white cursor-pointer">
+                        <option value="all">Tutte le Categorie</option>
+                        <option value="Operazioni">Operazioni & Network</option>
+                        <option value="Flotta">Flotta & Aeromobili</option>
+                        <option value="Partnership">Partnership & Corporate</option>
+                        <option value="Istituzionale">Istituzionale</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feed Comunicati Stampa -->
+        <div class="space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-bold tracking-wide text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-newspaper text-blue-600"></i> Comunicati Stampa Pubblicati
+                </h2>
+                <span id="results-count" class="text-xs font-semibold text-gray-500 bg-gray-200 px-2.5 py-1 rounded-full border border-gray-300">
+                    Mostrati: 0
+                </span>
+            </div>
+
+            <!-- Contenitore Comunicati Generato dinamicamente via JS -->
+            <div id="press-feed" class="grid grid-cols-1 gap-4"></div>
+
+            <!-- Empty Search Results Message -->
+            <div id="no-results" class="hidden text-center py-12 glass-panel rounded-2xl text-gray-500 text-sm">
+                <i class="fa-solid fa-folder-open text-3xl mb-2 text-gray-400"></i>
+                <p>Nessun comunicato trovato con i criteri di ricerca selezionati.</p>
+            </div>
+        </div>
+
+        <!-- Press Kit Section (Unificato) -->
+        <section id="presskit" class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6 border-t-4 border-t-blue-600">
+            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-gray-200/80 pb-4">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-gray-900 flex items-center gap-2.5">
+                        <i class="fa-solid fa-box-archive text-blue-600"></i> Press Kit & Media Assets
+                    </h2>
+                    <p class="text-sm text-gray-600 mt-1">
+                        Risorse ufficiali per giornalisti, redattori e creatori di contenuti.
+                    </p>
+                </div>
+                <a href="mailto:press-media@aviationeagle.net" class="inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Richiedi Materiale Stampa</span>
+                </a>
+            </div>
+
+            <!-- Download Unico ZIP -->
+            <div class="p-6 bg-white/80 rounded-xl border border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 hover:border-blue-300 transition-colors shadow-sm">
+                <div class="flex items-center space-x-4">
+                    <div class="p-4 bg-blue-50 text-blue-600 rounded-xl text-3xl flex-shrink-0">
+                        <i class="fa-solid fa-file-zipper"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-base text-gray-900">Press Kit Ufficiale Completo (ZIP)</h4>
+                        <p class="text-xs text-gray-500 mt-0.5">Contiene i loghi vettoriali (RGB/SVG), le Brand & Style Guidelines (PDF) e la galleria fotografica ad alta risoluzione.</p>
+                    </div>
+                </div>
+                <a href="presskit-aviation-eagle.zip" download class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl text-sm font-semibold transition-all shadow-sm flex-shrink-0">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Scarica Press Kit (ZIP)</span>
+                </a>
+            </div>
+
+            <!-- Media Contact Box -->
+            <div class="bg-blue-50/60 border border-blue-200/80 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="space-y-1">
+                    <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">Contatto Stampa Diretto</span>
+                    <p class="text-sm text-gray-800">
+                        Per interviste, note di chiarimento o accreditamento giornalistico:
+                    </p>
+                    <a href="mailto:press-media@aviationeagle.net" class="inline-block font-mono text-base font-bold text-blue-600 hover:underline">
+                        press-media@aviationeagle.net
+                    </a>
+                </div>
+                <a href="mailto:press-media@aviationeagle.net" class="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-4 py-2 rounded-lg text-xs font-bold transition-colors shadow-sm">
+                    <i class="fa-regular fa-paper-plane mr-1 text-blue-600"></i> Invia Email
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel mt-auto py-5 text-center text-xs text-gray-500 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p>&copy; 2026 Aviation Eagle Network. Tutti i diritti riservati.</p>
+            <p class="space-x-3">
+                <span>Ufficio Stampa: <a href="mailto:press-media@aviationeagle.net" class="text-blue-600 hover:underline font-mono">press-media@aviationeagle.net</a></span>
+                <span>•</span>
+                <a href="https://aviationeagle.co.uk" class="hover:text-gray-700 underline">Aviation Eagle Main Site</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script Gestione e Filtro Comunicati -->
+    <script>
+        // ELENCO COMUNICATI: Per aggiungere un nuovo comunicato, basta inserire un nuovo oggetto in cima a questa lista.
+        // Categorie: Operazioni, Flotta, Partnership, Istituzionale
+        const pressReleases = [
+            {
+                id: "AE-CS-2025-003",
+                title: "Aviation Eagle comunica che il sistema di reindirizzamento è temporaneamente online",
+                date: "29 Ottobre 2025",
+                category: "Operazioni",
+                categoryLabel: "Operazioni & Network",
+                badgeStyle: "bg-blue-100 text-blue-700 border-blue-200",
+                borderStyle: "border-l-blue-600",
+                summary: "Aviation Eagle informa che il sistema di reindirizzamento è stato ripristinato in modalità TEMPORANEA a seguito degli interventi di manutenzione in corso. La funzione OFFERTE potrebbe presentare discontinuità temporanee durante la fase di assestamento dei server.",
+                keywords: "reindirizzamento temporaneo online offerte manutenzione aviano",
+                url: "comunicato-3.html"
+            },
+            {
+                id: "AE-CS-2025-002",
+                title: "Aviation Eagle comunica che il sistema di reindirizzamento è temporaneamente offline",
+                date: "16 Ottobre 2025",
+                category: "Operazioni",
+                categoryLabel: "Operazioni & Network",
+                badgeStyle: "bg-amber-100 text-amber-800 border-amber-200",
+                borderStyle: "border-l-amber-500",
+                summary: "Aviation Eagle informa che, a causa di un'anomalia tecnica in corso di risoluzione, il sistema di reindirizzamento verso i fornitori esterni risulta momentaneamente non disponibile. I tentativi di prenotazione tramite la sezione OFFERTE potrebbero registrare interruzioni.",
+                keywords: "reindirizzamento offline anomalia tecnica manutenzione torino offerte",
+                url: "comunicato-2.html"
+            },
+            {
+                id: "AE-CS-2025-001",
+                title: "Aviation Eagle comunica che da oggi il sistema di ricerca è disponibile a tutti",
+                date: "28 Settembre 2025",
+                category: "Operazioni",
+                categoryLabel: "Operazioni & Network",
+                badgeStyle: "bg-emerald-100 text-emerald-800 border-emerald-200",
+                borderStyle: "border-l-emerald-600",
+                summary: "Aviation Eagle presenta ufficialmente a tutti gli utenti la nuova funzionalità di ricerca avanzata. L'innovazione tecnologica consentirà di accogliere un volume maggiore di richieste, supportando utenti e aziende nella pianificazione di viaggi convenienti ed efficienti.",
+                keywords: "sistema ricerca pubblico avanzata vacanze torino viaggi di lavoro",
+                url: "comunicato-1.html"
+            }
+        ];
+
+        function renderPressReleases() {
+            const feedContainer = document.getElementById('press-feed');
+            feedContainer.innerHTML = pressReleases.map(item => `
+                <article class="press-item glass-panel p-6 rounded-2xl space-y-3 border-l-4 ${item.borderStyle} transition-all hover:shadow-md" data-category="${item.category}" data-keywords="${item.keywords}">
+                    <div class="flex flex-wrap justify-between items-center gap-2 text-xs">
+                        <span class="${item.badgeStyle} px-2.5 py-0.5 rounded-full font-semibold border">${item.categoryLabel}</span>
+                        <span class="text-gray-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> ${item.date}</span>
+                    </div>
+                    <h3 class="press-title text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                        ${item.title}
+                    </h3>
+                    <p class="press-summary text-sm text-gray-650 leading-relaxed">
+                        ${item.summary}
+                    </p>
+                    <div class="pt-2 flex flex-wrap justify-between items-center gap-2 text-xs border-t border-gray-200/60">
+                        <span class="text-gray-400 font-mono">Ref: ${item.id}</span>
+                        <a href="${item.url}" target="_blank" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1">
+                            <span>Leggi comunicato completo</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </article>
+            `).join('');
+
+            filterPressReleases();
+        }
+
+        function filterPressReleases() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const selectedCategory = document.getElementById('category-filter').value;
+            const items = document.querySelectorAll('.press-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const title = item.querySelector('.press-title').textContent.toLowerCase();
+                const summary = item.querySelector('.press-summary').textContent.toLowerCase();
+                const category = item.getAttribute('data-category');
+                const keywords = item.getAttribute('data-keywords').toLowerCase();
+
+                const matchesQuery = title.includes(query) || summary.includes(query) || keywords.includes(query);
+                const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+
+                if (matchesQuery && matchesCategory) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('results-count').textContent = 'Mostrati: ' + visibleCount;
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderPressReleases);
+    </script>
+
+</body>
+</html>
